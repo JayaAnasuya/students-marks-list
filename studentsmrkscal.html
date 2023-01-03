@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>calculation</title>
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+</head>
+<style>
+    #main{
+        margin-top: 10px;
+    }
+    #head{
+        background-color:rgb(228, 170, 148);
+        border-radius: 100px;
+
+    }
+    #main{
+        width:400px;
+        height:500px;
+        background-color: rgb(67, 10, 120);
+        padding: 20px;
+        text-align: center;
+        color: white;
+    }
+    #result{
+        width:30%;
+        height:550px;
+        margin-top: 50px;
+    }
+    #head1,#head2,#head3{
+        text-align: center;
+        background-color: rgb(7, 31, 108);
+        height:45px;
+        color: white;
+    }
+    #total{
+        height:250px;
+        padding:15px;
+        font-size: 20px;
+    }
+    #average{
+        height:100px;
+        padding:15px;
+    }
+    #grade{
+        height:30px;
+        padding: 15px;
+    }
+    .menu {
+        display: flex;
+        justify-content: space-evenly;
+    }
+</style>
+<script>
+    function total(){
+        var sub1=parseInt(document.getElementById("eng").value);
+        var sub2=parseInt(document.getElementById("sci").value);
+        var sub3=parseInt(document.getElementById("mat").value);
+        var sub4=parseInt(document.getElementById("phy").value);
+        var sub5=parseInt(document.getElementById("che").value);
+
+        if(sub1>100||sub2>100||sub3>100||sub4>100||sub5>100){
+            alert('please Enter mark in range of 100');
+        }else{
+            var total = sub1 + sub2 + sub3 + sub4 + sub5;
+            document.getElementById("total").innerHTML = "English marks :"+sub2+" <br> Science marks :"+sub3+" <br> mathimatics marks :"+sub4+" <br> physics :"+sub5+" <br> chemistry marks:"+sub1+"<br>-------<br>Total marks:"+total;
+        }
+    }
+    function Average(){
+        var sub1=parseInt(document.getElementById("eng").value);
+        var sub2=parseInt(document.getElementById("sci").value);
+        var sub3=parseInt(document.getElementById("mat").value);
+        var sub4=parseInt(document.getElementById("phy").value);
+        var sub5=parseInt(document.getElementById("che").value);
+
+        if(sub1>100 || sub2>100 || sub3>100 || sub4>100 || sub5>100){
+            alert('please enter mark in range of 100');
+        }else{
+            var total=sub1 + sub2 + sub3 + sub4 + sub5;
+            var ave=total/5;
+            document.getElementById("average").innerHTML = "your average marks is : "+ave;
+        }
+    }
+    function grade(){
+        var sub1=parseInt(document.getElementById("eng").value);
+        var sub2=parseInt(document.getElementById("sci").value);
+        var sub3=parseInt(document.getElementById("mat").value);
+        var sub4=parseInt(document.getElementById("phy").value);
+        var sub5=parseInt(document.getElementById("che").value);
+
+        if(sub1>100 || sub2>100 || sub3>100 || sub4>100 || sub5>100){
+            alert('please enter mark in range of 100');
+        }else{
+            var total = sub1 + sub2 + sub3 + sub4 + sub5;
+            var ave=total/5;
+            if(ave>=80){
+                document.getElementById("grade").innerHTML = "your grade is A";
+            }
+             else if(ave>=70){
+                document.getElementById("grade").innerHTML = "your grade is B+";
+            }
+             else if(ave>=65){
+                document.getElementById("grade").innerHTML = "your grade is B";
+            }
+             else if(ave>=60){
+                document.getElementById("grade").innerHTML = "your grade is C+";
+            }
+            else if(ave>=55){
+                document.getElementById("grade").innerHTML = "your grade is D+";
+            }
+             else if(ave>=50){
+                document.getElementById("grade").innerHTML = "your grade is D";
+            }
+            else{
+                document.getElementById("grade").innerHTML = "your grade is F ";
+            }
+        }
+    }
+</script>
+<body>
+    <div class= "menu">
+        <div id="main">
+            <div id="head">
+                <h1 style="color:blue;">Grading system</h1>
+            </div>
+                <label>English</label><br><input type="text" id="eng"><br>
+               <label>Science</label><br><input type="text" id="sci"><br>
+               <label>Mathimatics</label><br><input type="text" id="mat"><br>
+               <label>Physics</label><br><input type="text" id="phy"><br>
+               <label>Chemistry</label><br><input type="text" id="che"><br>
+               <br>
+              <br>
+            <button class="btn btn-warning" onclick="total()">Total</button>
+            <button class="btn btn-warning" onclick="Average()">Average</button>
+            <button class="btn btn-warning" onclick="grade()">Grade</button>
+        </div>
+        <div id="result">
+            <div id="head1"><h1>Total</h1></div>
+            <div id="total">
+    
+            </div>
+            <div id="head2"><h1>Average</h1></div>
+            <div id="average">
+    
+            </div>
+            <div id="head3"><h1>Grade</h1></div>
+            <div id="grade">
+            </div>
+        </div>
+    </div>
+</body>
+</html>
